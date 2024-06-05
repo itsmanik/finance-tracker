@@ -1,21 +1,14 @@
-import {
-    SignedIn,
-    SignedOut,
-    UserButton,
-    SignInButton,
-    SignUpButton
-} from "@clerk/clerk-react";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
+import Auth from "./pages/auth";
 
 const App = () => {
     return (
         <div className="font-serif">
-            <SignedOut>
-                <SignInButton mode="modal" className="border p-3 bg-gray-950 text-white" />
-                <SignUpButton className="border p-3 bg-gray-950 text-white" mode="modal"/>
-            </SignedOut>
-            <SignedIn>
-                <UserButton />
-            </SignedIn>
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/auth" element={<Auth />} />
+            </Routes>
         </div>
     );
 };
